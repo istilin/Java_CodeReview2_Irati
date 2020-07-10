@@ -15,20 +15,36 @@ public class Exercise {
     // Creates printing method
     public void printExercise(){
 
-        // Calculates the length of the exercise name
-        int nameLength = this.name.length();
+        // Stores duration text in a variable
+        String dur = "DURATION: " + this.duration + " seconds.";
 
-        // Calculates number of spaces needed to put the duration message to the right
-        int spaces = 40 - nameLength;
-        System.out.print(this.name);
-
+        // Prints first line on the correct format
+        System.out.printf("%-39s %1s %n", this.name, dur);
         // Print spaces between the name of the exercise and the duration
-        for (int i = 0; i < spaces; i++){
-            System.out.print(" ");
-        }
-        System.out.println("DURATION: " + this.duration + " seconds.");
         System.out.println("-------------------------------------------------------------");
-        System.out.println("DESCRIPTION: " + this.description);
+
+        // For printing description in different lines:
+        String desc = "DESCRIPTION: " + this.description;
+        int numLines = desc.length()/61 + 1;
+        String[] descArray = desc.split(" ");
+        int lineLength = 0;
+        int numWords  = descArray.length;
+        int word = 0;
+        while (word < numWords) {
+            while (lineLength < 49) {
+                if (word < numWords) {
+                    System.out.print(descArray[word]);
+                    System.out.print(" ");
+                    lineLength += descArray[word].length() + 1;
+                    word++;
+                }
+                else{
+                    break;
+                }
+            }
+            System.out.print("\n");
+            lineLength = 0;
+        }
         System.out.println(" ");
     }
 }

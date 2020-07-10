@@ -25,9 +25,9 @@ public class Main {
 
         // Uncomment!!!
         // Prints all exercises with the print method
-        /*for( Exercise exercise : exercises){
+        for( Exercise exercise : exercises){
             exercise.printExercise();
-        }*/
+        }
 
         // Uncomment!!!
         // Prints only floor exercises with the print method
